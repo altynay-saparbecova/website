@@ -1,21 +1,22 @@
-import React from 'react'
-import { useLocation } from "react-router";
-import Header from '../../components/header/Header.jsx'
-import News from '../../components/news/News.jsx'
-import SideBar from '../../components/sidebar/Sidebar.jsx'
-import "./home.less"
+import React from "react";
+// import { useLocation } from "react-router";
+import Header from "../../components/header/Header.jsx";
+import News from "../../components/news/News.jsx";
+import SideBar from "../../components/sidebar/Sidebar.jsx";
+import "./home.less";
 const Home = () => {
-    const location = useLocation();
-    return (
-        <>
+  // const location = useLocation();
 
-            <Header />
-            <div className='home'>
-                <News />
-                <SideBar />
-            </div>
-        </>
-    )
+  //   const [posts, setPosts] = useState([]);
 
-}
-export default Home
+  return (
+    <>
+      <Header />
+      <div className="home">
+        <News />
+        <SideBar />
+      </div>
+    </>
+  );
+};
+export default Home;

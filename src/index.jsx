@@ -1,14 +1,19 @@
-
-
 import React from "react";
 import ReactDOM from "react-dom";
 // import "./index.less";
 import App from "./App.jsx";
 // import "antd/dist/antd.less";
+import { rootReducer } from "./store/reducers/index.jsx";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+
+const store = createStore(rootReducer);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
