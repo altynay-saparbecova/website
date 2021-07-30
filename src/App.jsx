@@ -25,8 +25,8 @@ const App = () => {
           <Home />
         </Route>
         <Route path="/register">{!currentUser ? <Home /> : <Register />}</Route>
-        <Route path="/login">{currentUser ? <Home /> : <Login />}</Route>
-        <Route path="/write">{currentUser ? <Write /> : <Register />}</Route>
+        <Route path="/login">{currentUser ? <Login /> : <Home />}</Route>
+        <Route path="/write">{currentUser ? <Write /> : <Login />}</Route>
         <Route path="/settings">
           {currentUser ? <Settings /> : <Register />}
         </Route>

@@ -15,7 +15,12 @@ const Home = () => {
       <div className="home">
         <News />
         <SideBar />
+
       </div>
+      <div>
+          
+      </div>
+
     </>
   );
 };

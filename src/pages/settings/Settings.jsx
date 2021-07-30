@@ -1,7 +1,10 @@
 import React from "react";
-import { useSelector, useState } from "react-redux";
-import SideBar from "../../components/sidebar/Sidebar.jsx";
+import { useSelector } from "react-redux";
+import { useState } from "react";
+
+// import SideBar from "../../components/sidebar/Sidebar.jsx";
 import "./setting.less";
+import Write from "../../pages/write/Write.jsx";
 
 const Settings = () => {
   const currentUser = useSelector((state) => state.currentUser);
@@ -35,7 +38,7 @@ const Settings = () => {
           <label>Username</label>
           <input
             type="text"
-            placeholder="Safak"
+            placeholder="your name"
             value={currentUser.firstName}
             name="name"
             onChange={(e) => {
@@ -67,7 +70,10 @@ const Settings = () => {
           </button>
         </form>
       </div>
-      <SideBar />
+      <div>
+        <Write />
+      </div>
+      {/* <SideBar /> */}
     </div>
   );
 };

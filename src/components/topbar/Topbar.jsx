@@ -1,9 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./topbar.less";
+import { useDispatch } from "react-redux";
+import { exit_user } from "../../store/actions/index.jsx";
 
 const Topbar = () => {
   const user = false;
+
+  const history = useHistory();
+  const dispatch = useDispatch();
   return (
     <div className="top">
       <div className="topLeft">
@@ -28,6 +33,15 @@ const Topbar = () => {
           </li>
           {user && <li className="topListItem">LOGOUT</li>}
         </ul>
+      </div>
+
+      <div
+        className="link"
+        onClick={() => {
+          dispatch(exit_user(history.push("/home")));
+        }}
+      >
+        EXIT
       </div>
       <div className="topRight">
         {user ? (

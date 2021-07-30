@@ -1,8 +1,9 @@
 import {
   ADD_USER,
-  // EXIT_USER,
+  EXIT_USER,
   LOGIN_USER,
   EDIT_USER,
+  ADD_TEXT,
   // DELETE_USER,
 } from "../actions/index.jsx";
 
@@ -11,6 +12,8 @@ const local = JSON.parse(localStorage.getItem("users"));
 const initialState = {
   localUsers: local ? local.localUsers : [],
   currentUser: local ? local.currentUser : {},
+  text: [],
+
   success: false,
 };
 console.log(initialState.currentUser == true);
@@ -31,18 +34,18 @@ export const rootReducer = (state = initialState, action) => {
       } else {
         return state;
       }
-    //   case EXIT_USER:
-    //     return {
-    //       ...state,
-    //       currentUser: {
-    //         userName: "",
-    //         userEmail: "",
-    //         userPassword: "",
-    //         photo: "",
-    //         id: "",
-    //       },
-    //       success: false,
-    //     };
+    case EXIT_USER:
+      return {
+        ...state,
+        currentUser: {
+          userName: "",
+          userEmail: "",
+          userPassword: "",
+          photo: "",
+          id: "",
+        },
+        success: false,
+      };
     case LOGIN_USER:
       let inUser = state.localUsers.find(
         (el) =>
@@ -66,6 +69,20 @@ export const rootReducer = (state = initialState, action) => {
           return el.userEmail === state.currentUser.userEmail ? action.obj : el;
         }),
       };
+    case ADD_TEXT:
+      return {
+        ...state,
+        text: [
+          ...state.text,
+          {
+            text: action.text,
+            title: action.title,
+            desc: action.desc,
+            id: action.id,
+          },
+        ],
+      };
+
     //   case DELETE_USER:
     //     if (action.password === state.currentUser.userPassword) {
     //               return {
