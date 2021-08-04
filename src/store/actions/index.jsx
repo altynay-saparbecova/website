@@ -3,7 +3,7 @@ export const LOGIN_USER = "LOGIN_USER";
 // export const EXIT_USER = "EXIT_USER";
 // export const DELETE_USER = "DELETE_USER";
 export const EDIT_USER = "EDIT_USER";
-export const ADD_TEXT = "ADD_TEXT";
+export const ADD_POST = "ADD_POST";
 export const add_user = (user) => ({
   type: ADD_USER,
   user,
@@ -14,17 +14,16 @@ export const login_user = (obj) => ({
   obj,
 });
 
-export const exit_user = (obj) => ({
-  type: EXIT_USER,
+// export const ADD_POST = "ADD_POST";
+
+export const add_post = (obj) => ({
+  type: ADD_POST,
   obj,
 });
-
-export const add_text = (title, desc, id) => ({
-  type: ADD_TEXT,
-  title,
-  desc,
-  id,
-});
+// export const exit_user = (obj) => ({
+//   type: EXIT_USER,
+//   obj,
+// });
 
 // export const delete_user = (password, email, obj) => ({
 //   type: DELETE_USER,

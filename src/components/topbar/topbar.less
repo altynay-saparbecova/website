@@ -95,14 +95,16 @@
 //     cursor: pointer;
 //   }
 .top {
-  width: 100%;
+  padding-left: 40px;
+  width: 1480px;
+  margin: auto 0;
   height: 60px;
   background-color: rgb(159, 216, 211);
   position: sticky;
   top: 0;
   display: flex;
   align-items: center;
-  z-index: 999;
+  // z-index: 999;
   font-family: "Josefin Sans", sans-serif;
 }
 
@@ -114,12 +116,12 @@
   justify-content: center;
 }
 
-.topIcon {
-  font-size: 20px;
-  margin-right: 10px;
-  color: #444;
-  cursor: pointer;
-}
+// .topIcon {
+//   font-size: 20px;
+//   margin-right: 10px;
+//   color: #444;
+//   cursor: pointer;
+// }
 
 .topCenter {
   flex: 6;
@@ -127,14 +129,14 @@
 
 .topList {
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .topListItem {
-  margin-right: 20px;
+  margin-right: 15px;
   font-size: 18px;
   font-weight: 300;
   cursor: pointer;
@@ -153,12 +155,20 @@
   cursor: pointer;
 }
 
-.topSearchIcon {
-  font-size: 18px;
-  color: #666;
-  cursor: pointer;
-}
+// .topSearchIcon {
+//   font-size: 18px;
+//   color: #666;
+//   cursor: pointer;
+// }
 .link {
   text-decoration: none;
   color: inherit;
+  padding-right: 5px;
 }
+
+// @media screen and(max-width: 480px) {
+//   .topListItem {
+//     width: 380px;
+//     background: #000;
+//   }
+// }

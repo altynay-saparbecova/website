@@ -1,87 +1,140 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
 import "./write.less";
-import { add_text } from "../../store/actions/index.jsx";
+// import moment from "moment";
+
+// import { add_post } from "../../store/actions/index.jsx";
+import { useHistory } from "react-router-dom";
+
+// const Write = () => {
+//   const state = useSelector((state) => state.currentUser);
+//   console.log(state);
+//   const dispatch = useDispatch();
+
+//   const [title, setTitle] = useState("");
+//   // const [img, setImg] = useState("");
+//   //   const [date, setDate] = useState(moment().format("MMMM Do YYYY, h:mm:ss a"));
+//   const [content, setContent] = useState("");
+//   // const [firstName, setFirstName] = useState(state.firstName);
+//   // const [lastName, setLastName] = useState(state.lastName);
+//   const [photo, setPhoto] = useState(state.photo);
+//   // const [about, setAbout] = useState(state.about);
+//   const history = useHistory();
+
+//   const addPost = () => {
+//     // console.log("content");
+//     dispatch(
+//       add_post({
+//         title,
+//         photo,
+//         content,
+//         date: moment().format("MMMM Do YYYY, h:mm:ss a"),
+//         id: state.id,
+//       })
+//     ) && history.push("/");
+//   };
+//   console.log(title);
+//   return (
+//     <div className="write">
+//       <div>
+//         <input
+//           className="writeInput"
+//           placeholder=" link photo "
+//           type="text"
+//           value={photo}
+//           onChange={(e) => setPhoto(e.target.value)}
+//         ></input>
+//       </div>
+
+//       <form className="writeForm">
+//         <div className="writeFormGroup">
+//           <input
+//             className="writeInput"
+//             placeholder="Title"
+//             type="text"
+//             value={title}
+//             onChange={(e) => setTitle(e.target.value)}
+//           />
+//         </div>
+
+//         <div className="writeFormGroup">
+//           <input
+//             className="writeInput writeText"
+//             placeholder="Tell your story..."
+//             type="text"
+//             value={content}
+//             onChange={(e) => setContent(e.target.value)}
+//           />
+//         </div>
+
+//         <button className="writeSubmit" type="submit" onClick={addPost}>
+//           Add post
+//         </button>
+//       </form>
+//     </div>
+//   );
+// };
+// export default Write;
 
 const Write = () => {
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
-  const [file, setFile] = useState("null");
+  const state = useSelector((state) => state.currentUser);
+  console.log(state);
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.currentUser);
 
-  const text = useSelector((state) => state.text);
+  const [title, setTitle] = useState("");
+  // const [img, setImg] = useState("");
+  //   const [date, setDate] = useState(moment().format("MMMM Do YYYY, h:mm:ss a"));
+  const [content, setContent] = useState("");
+  // const [firstName, setFirstName] = useState(state.firstName);
+  // const [lastName, setLastName] = useState(state.lastName);
+  const [photo, setPhoto] = useState(state.photo);
+  // const [about, setAbout] = useState(state.about);
+  const history = useHistory();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newPost = {
-      username: currentUser.username,
-      title,
-      desc,
-    };
-    if (file) {
-      const data = new FormData();
-      const filename = Date.now() + file.name;
-      data.append("name", filename);
-      data.append("file", file);
-      newPost.photo = filename;
-    }
-    axios.post("/news");
+  const addPost = () => {
+    // console.log("content");
+    dispatch(
+      add_post({
+        title,
+        photo,
+        content,
+        date: moment().format("MMMM Do YYYY, h:mm:ss a"),
+        id: state.id,
+      })
+    ) && history.push("/");
   };
 
   return (
-    <div className="write">
-      {file && (
-        <img
-          className="writeImg"
-          src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-          //   {URL.createObjectURL(file)}
-          //   src=""
-          alt=""
-        />
-      )}
-      <form className="writeForm" onSubmit={handleSubmit}>
-        <div className="writeFormGroup">
-          <label htmlFor="fileInput">
-            <i className="writeIcon fas fa-plus"></i>
-          </label>
-          <input
-            id="fileInput"
-            type="file"
-            style={{ display: "none" }}
-            onChange={(e) => setFile(e.target.files[0])}
-          />
-          <input
-            className="writeInput"
-            placeholder="Title"
-            type="text"
-            value={title}
-            autoFocus={true}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </div>
-        <div className="writeFormGroup">
-          <textarea
-            className="writeInput writeText"
-            placeholder="Tell your story..."
-            type="text"
-            autoFocus={true}
-            onChange={(e) => setDesc(e.target.value)}
-          />
-        </div>
-        <button
-          className="writeSubmit"
-          type="submit"
-          onClick={() => console.log(dispatch(add_text(text)))}
-        >
-          Add post
-        </button>
-      </form>
+    <div>
       <div>
-        {text.map((id) => {
-          return <p>{id}</p>;
-        })}
+        <input
+          className="writeInput"
+          placeholder=" link photo "
+          type="text"
+          value={photo}
+          onChange={(e) => setPhoto(e.target.value)}
+        />
+
+        <input
+          className="writeInput"
+          placeholder="Title"
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <textarea
+          className="writeInput writeText"
+          placeholder="Tell your story..."
+          type="text"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+        />
+
+        <div>
+          <button className="writeSubmit" type="submit" onClick={addPost}>
+            Add post
+          </button>
+        </div>
       </div>
     </div>
   );

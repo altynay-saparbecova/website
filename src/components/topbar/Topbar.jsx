@@ -11,12 +11,12 @@ const Topbar = () => {
   const dispatch = useDispatch();
   return (
     <div className="top">
-      <div className="topLeft">
+      {/* <div className="topLeft">
         <i className="topIcon fab fa-facebook-square"></i>
         <i className="topIcon fab fa-instagram-square"></i>
         <i className="topIcon fab fa-pinterest-square"></i>
         <i className="topIcon fab fa-twitter-square"></i>
-      </div>
+      </div> */}
       <div className="topCenter">
         <ul className="topList">
           <li className="topListItem">
@@ -24,25 +24,26 @@ const Topbar = () => {
               HOME
             </Link>
           </li>
-          <li className="topListItem">ABOUT</li>
-          <li className="topListItem">CONTACT</li>
+
+          {/* <li className="topListItem">ABOUT</li>
+          <li className="topListItem">CONTACT</li> */}
           <li className="topListItem">
             <Link className="link" to="/write">
-              WRITE
+              POST
             </Link>
           </li>
           {user && <li className="topListItem">LOGOUT</li>}
         </ul>
       </div>
 
-      <div
+      {/* <div
         className="link"
         onClick={() => {
           dispatch(exit_user(history.push("/home")));
         }}
       >
         EXIT
-      </div>
+      </div> */}
       <div className="topRight">
         {user ? (
           <Link className="link" to="/settings">

@@ -6,7 +6,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetPlugin = require("css-minimizer-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const loader = require("sass-loader");
-
 const isDev = process.env.NODE_ENV === "development";
 const isProd = !isDev;
 
@@ -64,6 +63,7 @@ module.exports = {
   },
   output: {
     filename: filename("js"),
+    publicPath: "/",
     path: path.resolve(__dirname, "dist"),
   },
   resolve: {

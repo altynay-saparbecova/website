@@ -1,26 +1,28 @@
 import React from "react";
-// import { useLocation } from "react-router";
 import Header from "../../components/header/Header.jsx";
 import News from "../../components/news/News.jsx";
-import SideBar from "../../components/sidebar/Sidebar.jsx";
-import "./home.less";
-const Home = () => {
-  // const location = useLocation();
+// import SideBar from "../../components/sidebar/Sidebar.jsx";
+import { useSelector } from "react-redux";
 
-  //   const [posts, setPosts] = useState([]);
+import "./home.less";
+// import Postt from "../../components/post1/index.jsx";
+
+const Home = () => {
+  // const state = useSelector((state) => state);
 
   return (
     <>
       <Header />
       <div className="home">
         <News />
-        <SideBar />
-
+        {/* <SideBar /> */}
+        {/* {state.localUsers.map((el) => {
+          return el.posts.map((post, postId) => {
+            return <Postt el={post} key={postId} />;
+          });
+        })} */}
       </div>
-      <div>
-          
-      </div>
-
+      <div></div>
     </>
   );
 };
