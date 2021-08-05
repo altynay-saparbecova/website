@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 
 import "./register.less";
-// import { routes } from "../../routes";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { add_user } from "../../store/actions/index.jsx";
@@ -21,8 +20,6 @@ const Register = () => {
     password: "",
     inEmail: "",
   });
-
-  // const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     setValues({
@@ -66,14 +63,10 @@ const Register = () => {
       );
     }
   };
-  //   else {
-  //     setErrors(validation(values));
-  //   }
 
   return (
     <div className="register">
       <span className="registerTitle">Register</span>
-      {/* {errors.inEmail && <p style={{ color: "red" }}>{errors.inEmail}</p>} */}
 
       <form className="registerForm">
         <label>Username</label>
@@ -85,7 +78,6 @@ const Register = () => {
           value={values.name}
           onChange={handleChange}
         />
-        {/* {errors.name && <p className="error">{errors.name}</p>} */}
 
         <label>Email</label>
         <input
@@ -96,7 +88,6 @@ const Register = () => {
           value={values.email}
           onChange={handleChange}
         />
-        {/* {errors.email && <p className="error">{errors.email}</p>} */}
 
         <label>Password</label>
         <input
@@ -107,7 +98,6 @@ const Register = () => {
           value={values.password}
           onChange={handleChange}
         />
-        {/* {errors.password && <p className="error">{errors.password}</p>} */}
 
         <button
           className="registerButton"

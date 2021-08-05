@@ -22,9 +22,6 @@ const Login = () => {
   const login = () => {
     dispatch(login_user({ inEmail, inPassword })) && history.push("/");
   };
-  // if (success) {
-  //   history.push("/login");
-  // }
 
   return (
     <div className="login">

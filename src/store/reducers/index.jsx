@@ -18,18 +18,11 @@ const initialState = {
     userPassword: "",
     id: "",
     photo: "",
-    // posts: [],
-
-    // bio: '',
+    posts: [],
   },
-  posts: [],
   postId: 0,
   succes: false,
 };
-// localUsers: local ? local.localUsers : [],
-// currentUser: local ? local.currentUser : {}
-// success: false,
-// };
 console.log(initialState.currentUser == true);
 
 export const rootReducer = (state = local ? local : initialState, action) => {
@@ -48,18 +41,6 @@ export const rootReducer = (state = local ? local : initialState, action) => {
       } else {
         return state;
       }
-    // case EXIT_USER:
-    //   return {
-    //     ...state,
-    //     currentUser: {
-    //       userName: "",
-    //       userEmail: "",
-    //       userPassword: "",
-    //       photo: "",
-    //       id: "",
-    //     },
-    //     success: false,
-    //   };
     case LOGIN_USER:
       let inUser = state.localUsers.find(
         (el) =>
@@ -83,25 +64,6 @@ export const rootReducer = (state = local ? local : initialState, action) => {
           return el.userEmail === state.currentUser.userEmail ? action.obj : el;
         }),
       };
-    // case ADD_POST:
-    //   return {
-    //     ...state,
-    //     currentUser: {
-    //       ...state.currentUser,
-    //       posts: [
-    // 				...state.currentUser.posts,
-    // 				{
-    // 					title: action.obj.title,
-    // 					img: action.obj.img,
-    // 					content: action.obj.content,
-    // 					date: action.obj.date,
-    // 					idPost: state.postId++,
-    // 				},
-    // 			],
-    // 		},
-    // 		postId: state.postId++,
-
-    // };
 
     case ADD_POST:
       return {
@@ -136,16 +98,6 @@ export const rootReducer = (state = local ? local : initialState, action) => {
             : el;
         }),
       };
-    //   case DELETE_USER:
-    //     if (action.password === state.currentUser.userPassword) {
-    //               return {
-    //                   ...state,
-    //                   currentUser: action.obj,
-    //                   localUsers: state.localUsers.filter(
-    //                       (el) => el.userEmail !== action.email,
-    //                   ),
-    //               }
-    //           }
     default:
       return state;
   }

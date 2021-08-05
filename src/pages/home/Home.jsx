@@ -15,14 +15,7 @@ const Home = () => {
       <Header />
       <div className="home">
         <News />
-        {/* <SideBar /> */}
-        {/* {state.localUsers.map((el) => {
-          return el.posts.map((post, postId) => {
-            return <Postt el={post} key={postId} />;
-          });
-        })} */}
       </div>
-      <div></div>
     </>
   );
 };

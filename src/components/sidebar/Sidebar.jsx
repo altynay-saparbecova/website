@@ -6,11 +6,7 @@ const SideBar = () => {
     <div className="sidebar">
       <div className="sidebarItem">
         <span className="sidebarTitle">ABOUT ME</span>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtKj5H2Q16kSKYN7G0LvvwvMJtfSmYqbsL9g&usqp=CAU"
-          // "https://themegoods-cdn-pzbycso8wng.stackpathdns.com/grandblog/demo/wp-content/uploads/2015/11/aboutme.jpg"
-          alt=""
-        />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtKj5H2Q16kSKYN7G0LvvwvMJtfSmYqbsL9g&usqp=CAU" />
         <p>
           Laboris sunt aute cupidatat velit magna velit ullamco dolore mollit
           amet ex esse.Sunt eu ut nostrud id quis proident.
